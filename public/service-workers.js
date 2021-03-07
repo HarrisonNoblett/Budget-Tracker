@@ -1,7 +1,6 @@
 const FILES_TO_CACHE = [
-    "/",
-    "/styles.css",
     "/index.html",
+    "/styles.css",
     "/index.js",
     "/db.js",
     "/icons/icon-192x192.png",
@@ -51,7 +50,7 @@ self.addEventListener("fetch", event => {
       return;
     }
   
-    if (event.request.url.includes("/api/images")) {
+    if (event.request.url.includes("/api/")) {
       event.respondWith(
         caches.open(RUNTIME_CACHE).then(cache => {
           return fetch(event.request)
